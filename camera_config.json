@@ -1,0 +1,68 @@
+
+{
+    "nvr_settings": {
+        "ip": "192.168.1.100",
+        "port": 8000,
+        "username": "admin",
+        "password": "admin",
+        "max_channels": 16,
+        "model": "AE-PR16-NVR-S1"
+    },
+    "cameras": [
+        {
+            "id": "cam1",
+            "model": "AE-IPPR03D",
+            "ip": "192.168.1.101",
+            "port": 554,
+            "username": "admin",
+            "password": "admin",
+            "rtsp_main": "rtsp://{username}:{password}@{ip}:{port}/stream1",
+            "rtsp_sub": "rtsp://{username}:{password}@{ip}:{port}/stream2",
+            "zone": "entrance",
+            "position": {"x": 0, "y": 0},
+            "settings": {
+                "resolution": "2048x1536",
+                "fps": 20,
+                "ir_led": "auto",
+                "motion_detection": true,
+                "detection_area": [[0, 0], [1920, 0], [1920, 1080], [0, 1080]]
+            }
+        },
+        {
+            "id": "cam2",
+            "model": "AE-IPPR03B",
+            "ip": "192.168.1.102",
+            "port": 554,
+            "username": "admin",
+            "password": "admin",
+            "rtsp_main": "rtsp://{username}:{password}@{ip}:{port}/stream1",
+            "rtsp_sub": "rtsp://{username}:{password}@{ip}:{port}/stream2",
+            "zone": "checkout",
+            "position": {"x": 600, "y": 400},
+            "settings": {
+                "resolution": "2048x1536",
+                "fps": 20,
+                "ir_led": "auto",
+                "motion_detection": true,
+                "detection_area": [[0, 0], [1920, 0], [1920, 1080], [0, 1080]]
+            }
+        }
+    ],
+    "stream_settings": {
+        "main_stream": {
+            "resolution": "2048x1536",
+            "fps": 20,
+            "encoding": "H.265"
+        },
+        "sub_stream": {
+            "resolution": "1920x1080",
+            "fps": 15,
+            "encoding": "H.265"
+        }
+    },
+    "network_settings": {
+        "protocols": ["TCP/IP", "UDP", "HTTP", "HTTPS", "DHCP", "RTSP", "DDNS"],
+        "connection_protocol": "ONVIF",
+        "bandwidth_limit": false
+    }
+}
