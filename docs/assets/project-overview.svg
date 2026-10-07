@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 390" role="img">
+<title>Store Traffic Monitor: project workflow</title>
+<rect width="1200" height="390" fill="#111820"/>
+<rect x="52" y="48" width="42" height="4" fill="#9abfe1"/>
+<text x="112" y="58" fill="#9abfe1" font-family="sans-serif" font-size="16">
+COMPUTER VISION PROTOTYPE</text>
+<text x="52" y="144" fill="#f3f5f7" font-family="sans-serif" font-size="56">
+Store Traffic Monitor</text>
+<text x="52" y="194" fill="#b8c3cf" font-family="sans-serif" font-size="20">
+Camera streams, recognition and analytics—with their uncertainties separated.</text>
+<line x1="52" y1="260" x2="307" y2="260" stroke="#3d4b58"/>
+<circle cx="60" cy="260" r="5" fill="#9abfe1"/>
+<text x="52" y="302" fill="#9abfe1" font-family="sans-serif"
+font-size="13">01</text>
+<text x="52" y="335" fill="#e1e7ed" font-family="sans-serif"
+font-size="18">RTSP streams</text>
+<line x1="337" y1="260" x2="592" y2="260" stroke="#3d4b58"/>
+<circle cx="345" cy="260" r="5" fill="#9abfe1"/>
+<text x="337" y="302" fill="#9abfe1" font-family="sans-serif"
+font-size="13">02</text>
+<text x="337" y="335" fill="#e1e7ed" font-family="sans-serif"
+font-size="18">Face matching</text>
+<line x1="622" y1="260" x2="877" y2="260" stroke="#3d4b58"/>
+<circle cx="630" cy="260" r="5" fill="#9abfe1"/>
+<text x="622" y="302" fill="#9abfe1" font-family="sans-serif"
+font-size="13">03</text>
+<text x="622" y="335" fill="#e1e7ed" font-family="sans-serif"
+font-size="18">Zone metrics</text>
+<line x1="907" y1="260" x2="1162" y2="260" stroke="#3d4b58"/>
+<circle cx="915" cy="260" r="5" fill="#9abfe1"/>
+<text x="907" y="302" fill="#9abfe1" font-family="sans-serif"
+font-size="13">04</text>
+<text x="907" y="335" fill="#e1e7ed" font-family="sans-serif"
+font-size="18">Local reports</text>
+</svg>
