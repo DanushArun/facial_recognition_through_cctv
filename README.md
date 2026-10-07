@@ -1,7 +1,65 @@
-# Store Traffic Monitoring Prototype
+![Store Traffic Monitor workflow](docs/assets/project-overview.svg)
+
+# Store Traffic Monitor
+
+**Camera streams, recognition and analytics—with their uncertainties separated.**
 
 A Python/OpenCV prototype combining IP-camera streams, face matching and store traffic analytics.
 It includes both a multi-camera monitoring system and standalone face-recognition scripts.
+
+
+![OpenCV](https://img.shields.io/badge/OpenCV-181f28)
+![InsightFace](https://img.shields.io/badge/InsightFace-181f28)
+![FAISS](https://img.shields.io/badge/FAISS-181f28)
+
+[Architecture](docs/ARCHITECTURE.md) · [Evaluation guide](docs/EVALUATION.md)
+
+**Contents:** [The challenge](#the-challenge) · [Walkthrough](#walk-through-the-project) ·
+[Implementation](#implementation-state) · [Design choices](#engineering-choices) ·
+[Next evidence](#next-evidence-to-collect)
+
+---
+
+## The challenge
+
+Store traffic analysis involves stream availability, detections, identity matching and spatial
+interpretation. This prototype combines those layers, but a visitor count or heat map is only as
+reliable as the recognition and camera geometry feeding it.
+
+## System at a glance
+
+```mermaid
+flowchart LR
+    N0["RTSP streams"]
+    N1["Face matching"]
+    N2["Zone metrics"]
+    N3["Local reports"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+```
+
+## Walk through the project
+
+### 1. Configure a controlled camera
+
+Supply authorized RTSP endpoints and zone boundaries. Review the connection diagnostics before
+capturing data.
+
+### 2. Inspect stream processing
+
+The camera manager coordinates frames while the monitoring system processes and displays them.
+Network reconnect behavior belongs to a different layer than recognition accuracy.
+
+### 3. Review recognition records
+
+Face matching can register visitors and save embeddings/CSV records. Existing artifacts are not a
+labeled accuracy benchmark.
+
+### 4. Check analytics output
+
+Inspect dwell-time, zone and heat-map reports. Validate camera-to-store coordinates and false
+matches before interpreting cross-camera behavior.
 
 ## Architecture
 
@@ -66,3 +124,32 @@ Load pickle artifacts only from a trusted source.
 The prototype does not demonstrate validated identity accuracy, cross-camera calibration,
 privacy compliance or deployment readiness. Evaluate with consenting participants and controlled
 camera data, define retention/access controls and inspect false matches before operational use.
+
+## Engineering choices
+
+**Separate stream and recognition failures.** A connected camera is not proof of valid face
+matching.
+
+**Local artifact storage.** CSV and pickle outputs need explicit trust, access and retention
+controls.
+
+**Diagnostic tests are labeled.** Live camera scripts are not isolated unit tests.
+
+## Implementation state
+
+| State | Current evidence |
+| --- | --- |
+| Present | Stream management and recognition source |
+| Present | Visitor metrics, report and heat-map generation |
+| Requires hardware | Live camera and integration diagnostics |
+| Not validated | Identity accuracy, calibration, privacy or production readiness |
+
+The [architecture guide](docs/ARCHITECTURE.md) maps these statements to source entry points.
+The [evaluation guide](docs/EVALUATION.md) separates inspection, executable checks and
+domain validation, with the next evidence needed for each project.
+
+## Next evidence to collect
+
+- Evaluate controlled footage with consenting participants.
+- Measure false matches and coordinate calibration.
+- Establish retention, access and deployment controls.
